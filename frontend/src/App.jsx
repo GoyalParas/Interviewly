@@ -1,6 +1,6 @@
 
 import './App.css'
-import {SignedIn, SignedOut, SignedOutButton, SignInButton, UserButton} from '@clerk/clerk-react';
+import {SignedIn, SignedOut, SignOutButton, SignInButton, UserButton} from '@clerk/clerk-react';
 
 function App() {
   
@@ -13,7 +13,7 @@ function App() {
       </SignedOut>   
 
       <SignedIn>
-        <SignedOutButton />
+        <SignOutButton />
       </SignedIn> 
 
       <UserButton />
