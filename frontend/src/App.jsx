@@ -7,6 +7,7 @@ import DashboardPage from "./Pages/DashboardPage";
 
 import ProblemPage from "./Pages/ProblemPage.jsx";
 import ProblemsPage from "./Pages/ProblemsPage";
+import SessionPage from "./Pages/SessionPage";
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
       
       <Route path="/problems" element={isSignedIn ? <ProblemsPage /> : <Navigate to={"/"} />} />
       <Route path="/problem/:id" element={isSignedIn ? <ProblemPage /> : <Navigate to={"/"} />} />
+       <Route path="/session/:id" element={isSignedIn ? <SessionPage /> : <Navigate to={"/"} />} />
       
     </Routes>
     
