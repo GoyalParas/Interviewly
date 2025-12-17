@@ -1,5 +1,9 @@
-## 🔵 Deployed Link  
-### 👉 [LIVE AT 🚀](https://cricketweaopn.vercel.app/#/)
+## 🔵 Live Demo  
+<h3>
+  👉 <a href="https://hirelens-n84wz.sevalla.app/#/" style="color:red;">
+    CLICK HERE 🚀
+  </a>
+</h3>
 
 <h1 align="center">✨ Full-Stack Interview Platform ✨</h1>
 
