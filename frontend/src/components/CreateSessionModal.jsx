@@ -18,10 +18,7 @@ function CreateSessionModal({
       <div className="modal-box max-w-2xl">
         <h3 className="font-bold text-2xl mb-6">Create New Session</h3>
         <form
-          onSubmit={e => {
-            e.preventDefault();
-            onCreateRoom();
-          }}
+          onSubmit={onCreateRoom}
         >
           <div className="space-y-8">
             {/* PROBLEM SELECTION */}

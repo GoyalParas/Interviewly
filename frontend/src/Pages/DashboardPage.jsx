@@ -21,20 +21,25 @@ function DashboardPage() {
   const { data: activeSessionsData, isLoading: loadingActiveSessions } = useActiveSessions();
   const { data: recentSessionsData, isLoading: loadingRecentSessions } = useMyRecentSessions();
 
-  const handleCreateRoom = async () => {
+  const handleCreateRoom = async (e) => {
+    if (e) e.preventDefault();
     if (!roomConfig.problem || !roomConfig.difficulty) return;
-    await createSessionMutation.mutateAsync(
-      {
-        problem: roomConfig.problem,
-        difficulty: roomConfig.difficulty.toLowerCase(),
-      },
-      {
-        onSuccess: (data) => {
-          setShowCreateModal(false);
-          navigate(`/session/${data.session._id}`);
+    try {
+      await createSessionMutation.mutateAsync(
+        {
+          problem: roomConfig.problem,
+          difficulty: roomConfig.difficulty.toLowerCase(),
         },
-      }
-    );
+        {
+          onSuccess: (data) => {
+            setShowCreateModal(false);
+            navigate(`/session/${data.session._id}`);
+          },
+        }
+      );
+    } catch (err) {
+      // error handled by react-query toast
+    }
   };
 
   const activeSessions = activeSessionsData?.sessions || [];
