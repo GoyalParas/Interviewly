@@ -9,7 +9,13 @@ import {
   joinSession,
 } from "../controllers/sessionController.js";
 
+
 const router = express.Router();
+
+// Add GET / to avoid 404s for GET /api/sessions
+router.get("/", (req, res) => {
+  res.status(200).json({ msg: "GET /api/sessions is not implemented. Use /active, /my-recent, or POST to create a session." });
+});
 
 router.post("/", protectRoute, createSession);
 router.get("/active", protectRoute, getActiveSessions);
