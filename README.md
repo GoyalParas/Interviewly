@@ -1,7 +1,7 @@
 <h1 align="center">Interviewly</h1>
 
 ## 🚨 Deployed Link
-👉 [Live Demo](https://hirelens-n84wz.sevalla.app/#/)
+👉 [Live Demo](https://interviewly-3o3s.vercel.app//#/)
 
 <h1 align="center">✨ Full-Stack Real-Time Video Interview & Coding Platform ✨</h1>
 
