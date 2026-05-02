@@ -16,11 +16,41 @@ const app = express();
 const __dirname = path.resolve();
 
 // middleware
-app.use(express.json());
+// app.use(express.json());
 // credentials:true meaning?? => server allows a browser to include cookies on request
-app.use(cors({ origin: ENV.CLIENT_URL, credentials: true }));
+// app.use(cors({ origin: ENV.CLIENT_URL, credentials: true }));
 
-app.use(clerkMiddleware()); // this adds auth field to request object: req.auth()
+// app.use(clerkMiddleware()); // this adds auth field to request object: req.auth()
+
+
+
+
+app.use(express.json());
+
+app.use(cors({
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      ENV.CLIENT_URL,
+      "https://interviewly-3o3s.vercel.app",
+    ].filter(Boolean);
+    if (!origin || allowedOrigins.includes(origin)) callback(null, true);
+    else callback(new Error(`CORS blocked: ${origin}`));
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
+
+app.options("*", cors()); // handle preflight
+
+app.use(clerkMiddleware());
+// ... rest of your routes
+
+
+
+
+
+
 
 app.use("/api/inngest", serve({ client: inngest, functions }));
 
